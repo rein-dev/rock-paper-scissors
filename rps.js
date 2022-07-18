@@ -39,8 +39,13 @@ function comPlay(){
     return cFinal;
 }
 
+function myGreeting() {
+    document.getElementById("demo").innerHTML = "Its game time!"
+}
+
 while (games<5){
     
+    setTimeout(myGreeting, 5000);
     input = prompt("Enter your choice");
     result = input.toLowerCase();
     
