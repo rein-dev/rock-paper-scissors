@@ -10,6 +10,8 @@ let regexWin = /win/;
 let regexTie = /tie/;
 let regex = /^rock$|^paper$|^scissors$/;
 
+let delayInMilliseconds = 5000; //5 seconds
+
 function playRound() {
     if (result == "rock"){
         if (cFinal == "rock") gFinal = "It's a tie!!! rock vs rock";
@@ -39,35 +41,33 @@ function comPlay(){
     return cFinal;
 }
 
-function myGreeting() {
-    document.getElementById("demo").innerHTML = "Its game time!"
-}
+setTimeout(function() {
+  //your code to be executed after 5 seconds
+    while (games<5){
+        
+        input = prompt("Enter your choice");
+        result = input.toLowerCase();
+        
+        if (result.match(regex) && result != null){			
 
-while (games<5){
-    
-    setTimeout(myGreeting, 5000);
-    input = prompt("Enter your choice");
-    result = input.toLowerCase();
-    
-    if (result.match(regex) && result != null){			
-
-    comPlay();
-    playRound();
-            
-        if (playRound().match(regexWin)){
-            uWin++;
-            games++;
-            console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
+        comPlay();
+        playRound();
+                
+            if (playRound().match(regexWin)){
+                uWin++;
+                games++;
+                console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
+            }
+            else if (playRound().match(regexTie)) {
+                games++;
+                console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
+            }
+            else{
+                comWin++;
+                games++;
+                console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
+            }				
         }
-        else if (playRound().match(regexTie)) {
-            games++;
-            console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
-        }
-        else{
-            comWin++;
-            games++;
-            console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
-        }				
+        else console.log("This is a rock, paper, scissors game");
     }
-    else console.log("This is a rock, paper, scissors game");
-}
+}, delayInMilliseconds);
