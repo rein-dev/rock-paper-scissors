@@ -7,6 +7,7 @@ Project 3
 Writing a rock, paper, scissors game with Javascript. What have I learned:
 
 - Make use of functions
+- Use conditionals to handle logic
 - Used regular expressions to match my outcomes
 - Get input from a user with the prompt screen
 - Set a delay before starting the game
