@@ -14,7 +14,7 @@ Writing a rock, paper, scissors game with Javascript. What have I learned:
 
 I will style this game later on.
 
-The live preview can be viewd here ==> https://rein-dev.github.io/rock-paper-scissors
+The live preview can be viewed here ==> https://rein-dev.github.io/rock-paper-scissors
 
 /**************PART2**************/
 
