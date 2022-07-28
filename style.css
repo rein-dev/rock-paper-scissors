@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(43, 42, 42);
+    font-size: 1.5rem;    
+}
+
+h1 {
+    padding-top: 120px;
+    text-align: center;
+    color: deeppink;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 0  1pc 0.8ch black;
+}
+
+.container  {
+    border-radius: 20px;
+    background-color: black;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 30px 5px deeppink;
+}
+
+.selection {
+    margin: 100px 0;
+    display: flex;     
+    justify-content: space-around;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item:hover {
+    background-color: rgb(255, 89, 255, 0.958);
+    border-radius: 10%;
+    cursor: pointer;
+    box-shadow:
+        0 0 80px 40px rgb(255, 89, 255),
+        0 0 100px 60px #f0f,
+        0 0 140px 90px #0ff;        
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+}
+
+.score {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff;
+    display: flex;
+    margin: 20px;
+    width: 300px;    
+    background-color: rgb(141, 32, 141);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 0  0.8pc 0.5ch black;
+}

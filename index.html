@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">    
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <h1>Rock Paper Scissors game</h1>
-    <br>
-    <p>Currenty should be played through the console. When prompted, press f12 then continue.</p>
-    <script src="./rps.js"></script>    
+    <h1>Test your luck against a machine...</h1>
+    <div class="container">
+
+        <div class="selection">
+            <img src="./stone.png" alt="its a rock" class="item" id="r">
+            <img src="./paper.png" alt="its paper" class="item" id="p">
+            <img src="./scissors.png" alt="its scissors" class="item" id="s">
+        </div>
+
+        <div class="scores">
+            <div class="score">
+                <p>USER SCORE</p> 
+                <p id="user">0</p>
+            </div>
+            <div class="score">
+                <p>GAMES PLAYED</p>
+                <p id="games">0</p>
+            </div>
+            <div class="score">
+                <p>COMPUTER SCORE</p>
+                <p id="pc">0</p>
+            </div>
+        </div>
+
+    </div>
+   <script src="logic.js"></script> 
 </body>
 </html>

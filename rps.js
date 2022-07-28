@@ -1,73 +1,124 @@
-let cFinal = 0;
-let gFinal = 0;
-let games = 0;
-let uWin = 0;
-let comWin = 0;
+const rock = document.querySelector('#r');
+const paper = document.querySelector('#p');
+const scissors = document.querySelector('#s');
 
-let input;
-let result;
-let regexWin = /win/;
-let regexTie = /tie/;
-let regex = /^rock$|^paper$|^scissors$/;
+let pcRandom = 0;
+let gamesPlayed = 0;
+let userScore = 0;
+let pcScore = 0;
 
-let delayInMilliseconds = 5000; //5 seconds
+let input = prompt('How many rounds of pain would you like?');
 
-function playRound() {
-    if (result == "rock"){
-        if (cFinal == "rock") gFinal = "It's a tie!!! rock vs rock";
-        else if (cFinal == "paper") gFinal = "You lose, paper vs rock :(";
-        else gFinal = "You win, rock vs scissors!!!";
-        return gFinal;
-    }
-    else if (result == "paper"){
-        if (cFinal == "rock") gFinal = "You win, paper vs rock!!!";
-        else if (cFinal == "paper") gFinal = "It's a tie!!! paper vs paper";
-        else gFinal = "You lose, scissors vs paper :(";
-        return gFinal;
-    }
-    else {
-        if (cFinal == "rock") gFinal = "You lose, rock vs scissors :(";
-        else if (cFinal == "paper") gFinal = "You win, scissors vs paper!!!";
-        else gFinal = "It's a tie!!! scissors vs scissors";
-        return gFinal;
-    }
+function randomGuess(){
+    let guess = Math.floor(Math.random() * 3);
+    if (guess == 0) pcRandom = 'rock';
+    else if (guess == 1) pcRandom = 'paper';
+    else pcRandom = 'scissors';
+    return pcRandom;
 }
 
-function comPlay(){
-    cGuess = Math.floor(Math.random()*3);	
-    if (cGuess == 0) cFinal = "rock";
-    else if (cGuess == 1) cFinal = "paper";
-    else cFinal = "scissors";
-    return cFinal;
-}
-
-setTimeout(function() {
-  //your code to be executed after 5 seconds
-    while (games<5){
-        
-        input = prompt("Enter your choice");
-        result = input.toLowerCase();
-        
-        if (result.match(regex) && result != null){			
-
-        comPlay();
-        playRound();
-                
-            if (playRound().match(regexWin)){
-                uWin++;
-                games++;
-                console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
-            }
-            else if (playRound().match(regexTie)) {
-                games++;
-                console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
-            }
-            else{
-                comWin++;
-                games++;
-                console.log(gFinal +"\nGames you WON: " +uWin + "\nGames played:  " + games + "\nGames pc WON: " + comWin);
-            }				
+function rockPlay(){
+    while (gamesPlayed < input){
+        randomGuess();
+        alert('Computer guessed ' + pcRandom);
+        document.getElementById('games').innerText = ++gamesPlayed;
+        if (pcRandom == 'rock') {
+            document.getElementById('games').innerText = gamesPlayed;
+            break;
+        }    
+        else if (pcRandom == 'paper') {
+            document.getElementById('pc').innerText = ++pcScore;
+            break;
         }
-        else console.log("This is a rock, paper, scissors game");
+        else {
+            document.getElementById('user').innerText = ++userScore;
+            break;
+        }
     }
-}, delayInMilliseconds);
+    while (gamesPlayed == input) {
+        if (userScore > pcScore) { 
+            alert('Game over...you WON');
+            break;
+        }
+        else if (userScore == pcScore) {
+            alert('You live to play another day');
+            break;
+        }
+        else {
+            alert('Game over...you LOST');
+            break;
+        }
+    }
+}
+
+function paperPlay(){
+    while (gamesPlayed < input){
+        randomGuess();
+        alert('Computer guessed ' + pcRandom);
+        document.getElementById('games').innerText = ++gamesPlayed;
+        if (pcRandom == 'rock' ) {
+            document.getElementById('user').innerText = ++userScore;    
+            break;
+        }
+        else if (pcRandom == 'paper') { 
+            document.getElementById('games').innerText = gamesPlayed;
+            break;
+        }
+        else { 
+            document.getElementById('pc').innerText = ++pcScore;
+            break;
+        }
+    }
+    while (gamesPlayed == input) {
+        if (userScore > pcScore) { 
+            alert('Game over...you WON');
+            break;
+        }
+        else if (userScore == pcScore) {
+            alert('You live to play another day');
+            break;
+        }
+        else {
+            alert('Game over...you LOST');
+            break;
+        }
+    }
+}
+
+function scissorPlay(){
+    while (gamesPlayed < input) {
+        randomGuess();
+        alert('Computer guessed ' + pcRandom);
+        document.getElementById('games').innerText = ++gamesPlayed;
+        if (pcRandom == 'rock') { 
+            document.getElementById('pc').innerText = ++pcScore;    
+            break;
+        }
+        else if (pcRandom == 'paper') {
+            document.getElementById('user').innerText = ++userScore;
+            break;
+        }
+        else {
+            document.getElementById('games').innerText = gamesPlayed;
+            break;
+        }
+    }
+    while (gamesPlayed == input) {
+        if (userScore > pcScore) { 
+            alert('Game over...you WON');
+            break;
+        }
+        else if (userScore == pcScore) {
+            alert('You live to play another day');
+            break;
+        }
+        else {
+            alert('Game over...you LOST');
+            break;
+        }
+    }
+}
+
+rock.addEventListener('click', rockPlay);
+paper.addEventListener('click', paperPlay);
+scissors.addEventListener('click', scissorPlay);
