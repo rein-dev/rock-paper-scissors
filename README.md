@@ -15,8 +15,14 @@ Writing a rock, paper, scissors game with Javascript. What have I learned:
 
 I will style this game later on.
 
-The live preview can be viewed here ==> https://rein-dev.github.io/rock-paper-scissors
-
 /**************PART2**************/
 
-to follow...
+Finished the project. What I learned:
+
+- Added a user interface
+- Learned how to create a new branch (git)
+- How to merge my branch with the main branch
+- How to add event listeners to javascript
+- How to make use of the DOM
+
+The live preview can be viewed here ==> https://rein-dev.github.io/rock-paper-scissors
