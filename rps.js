@@ -41,7 +41,7 @@ function rockPlay(){
             break;
         }
         else if (userScore == pcScore) {
-            alert('You live to play another day');
+            alert('DRAW...you live to play another day');
             break;
         }
         else {
@@ -75,7 +75,7 @@ function paperPlay(){
             break;
         }
         else if (userScore == pcScore) {
-            alert('You live to play another day');
+            alert('DRAW...you live to play another day');
             break;
         }
         else {
@@ -109,7 +109,7 @@ function scissorPlay(){
             break;
         }
         else if (userScore == pcScore) {
-            alert('You live to play another day');
+            alert('DRAW...you live to play another day');
             break;
         }
         else {
